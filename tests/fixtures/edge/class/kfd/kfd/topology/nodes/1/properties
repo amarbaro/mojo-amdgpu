@@ -1,0 +1,5 @@
+simd_count 192
+gfx_target_version 110000
+wave_front_size 32
+lds_size_in_kb 64
+vendor_id 4098
