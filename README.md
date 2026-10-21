@@ -1,5 +1,7 @@
 # mojo-amdgpu
 
+[![CI](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml/badge.svg)](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml)
+
 AMD GPU telemetry for Mojo from sysfs, hwmon and KFD, no ROCm and no `rocm-smi` needed. Every
 value is checked against a Python oracle on a copy of a real 7900 XTX + iGPU sysfs tree, and a
 sample (17 metrics) costs 8 µs, about 2.2× faster than Python with `pread` and about 7× faster than Python
