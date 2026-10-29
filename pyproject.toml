@@ -4,4 +4,4 @@ version = "0.1.0"
 description = "AMD GPU telemetry for Mojo from sysfs and hwmon, no ROCm needed: VRAM, busy, power, temperature, clocks, KFD holders"
 license = "Apache-2.0"
 requires-python = ">=3.11,<3.15"
-dependencies = ["mojo>=1.1.0,<1.2"]
+dependencies = ["mojo>=1.2.0,<1.3"]

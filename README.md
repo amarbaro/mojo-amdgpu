@@ -20,7 +20,7 @@ def main() raises:
 
 ## Install
 
-Requires Mojo 1.1 on Linux with the `amdgpu` driver. Nothing to link.
+Requires Mojo 1.2 on Linux with the `amdgpu` driver. Nothing to link.
 
 | Way | Command |
 |---|---|

@@ -5,7 +5,7 @@ description: "Read AMD GPU VRAM, busy, power, temperature, clocks and KFD nodes 
 
 # mojo-amdgpu
 
-AMD GPU telemetry for Mojo 1.1 on Linux from sysfs, hwmon and KFD. Each value is checked
+AMD GPU telemetry for Mojo 1.2 on Linux from sysfs, hwmon and KFD. Each value is checked
 against a Python oracle on a copied sysfs tree.
 
 ## Install
