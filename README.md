@@ -1,6 +1,9 @@
 # mojo-amdgpu
 
-[![CI](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml/badge.svg)](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml)
+<!-- badges -->
+[![ci](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml) [![latest release](https://img.shields.io/github/v/release/amarbaro/mojo-amdgpu)](https://github.com/amarbaro/mojo-amdgpu/releases/latest) [![license](https://img.shields.io/github/license/amarbaro/mojo-amdgpu)](https://github.com/amarbaro/mojo-amdgpu/blob/main/LICENSE)
+<!-- /badges -->
+
 
 AMD GPU telemetry for Mojo from sysfs, hwmon and KFD, no ROCm and no `rocm-smi` needed. Every
 value is checked against a Python oracle on a copy of a real 7900 XTX + iGPU sysfs tree, and a
