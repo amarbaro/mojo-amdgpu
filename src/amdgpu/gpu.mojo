@@ -97,7 +97,7 @@ def _slurp(path: String, mut buf: Span[UInt8, _]) -> Int:
     return n
 
 
-def _numdirs(path: String, prefix: String) raises -> List[Int]:
+def _numdirs(path: String, prefix: String) -> List[Int]:
     """Numbers N of the entries named `<prefix>N` in `path`, ascending (card2 before card10)."""
     var out = List[Int]()
     try:
@@ -129,7 +129,7 @@ def _text(path: String) -> String:
     return String(StringSlice(unsafe_from_utf8=sp[:n]).strip())
 
 
-def cards(root: String = "/sys") raises -> List[String]:
+def cards(root: String = "/sys") -> List[String]:
     """Names (`card0`, `card1`, ...) of the DRM cards that expose VRAM files, in numeric order."""
     var out = List[String]()
     for n in _numdirs(root + "/class/drm", "card"):
@@ -138,7 +138,7 @@ def cards(root: String = "/sys") raises -> List[String]:
     return out^
 
 
-def best_card(root: String = "/sys") raises -> String:
+def best_card(root: String = "/sys") -> String:
     """The card with the most VRAM (first wins a tie); empty when there is none."""
     var best = String()
     var top = -1
