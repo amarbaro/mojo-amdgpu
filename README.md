@@ -4,6 +4,29 @@
 [![ci](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml) [![latest release](https://img.shields.io/github/v/release/amarbaro/mojo-amdgpu)](https://github.com/amarbaro/mojo-amdgpu/releases/latest) [![license](https://img.shields.io/github/license/amarbaro/mojo-amdgpu)](https://github.com/amarbaro/mojo-amdgpu/blob/main/LICENSE)
 <!-- /badges -->
 
+<!-- install -->
+Install: `pixi add mojo-amdgpu` once published. For now: `git clone https://github.com/amarbaro/mojo-amdgpu`, then `mojo run -I mojo-amdgpu/src app.mojo`.
+
+```mojo
+from amdgpu import Gpu, VRAM_USED, GPU_BUSY, TEMP_JUNCTION, POWER_UW
+
+
+def main() raises:
+    # Gpu("/sys") is the default; the example reads the fixture so it runs anywhere.
+    var g = Gpu("tests/fixtures/sys")  # opens the card with the most VRAM, files once
+    for _ in range(3):  # a daemon would sleep 1 s between samples
+        g.refresh()  # pread into one buffer, no allocation
+        print(
+            g.card, "vram used MiB", g.get(VRAM_USED) // 1048576, "free MiB", g.vram_free() // 1048576,
+            "busy %", g.get(GPU_BUSY), "junction mC", g.get(TEMP_JUNCTION), "power uW", g.get(POWER_UW),
+        )
+```
+
+| | per sample | peak RSS |
+|---|---|---|
+| Mojo, `Gpu.refresh()` | 8.0 to 8.6 µs | 11.6 to 11.7 MB |
+<!-- /install -->
+
 
 AMD GPU telemetry for Mojo from sysfs, hwmon and KFD, no ROCm and no `rocm-smi` needed. Every
 value is checked against a Python oracle on a copy of a real 7900 XTX + iGPU sysfs tree, and a
