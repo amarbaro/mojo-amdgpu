@@ -21,38 +21,14 @@ def main() raises:
             "busy %", g.get(GPU_BUSY), "junction mC", g.get(TEMP_JUNCTION), "power uW", g.get(POWER_UW),
         )
 ```
-
-| | per sample | peak RSS |
-|---|---|---|
-| Mojo, `Gpu.refresh()` | 8.0 to 8.6 µs | 11.6 to 11.7 MB |
 <!-- /install -->
-
 
 AMD GPU telemetry for Mojo from sysfs, hwmon and KFD, no ROCm and no `rocm-smi` needed. Every
 value is checked against a Python oracle on a copy of a real 7900 XTX + iGPU sysfs tree, and a
 sample (17 metrics) costs 8 µs, about 2.2× faster than Python with `pread` and about 7× faster than Python
 that re-opens each file, with no allocation per sample.
 
-```mojo
-from amdgpu import Gpu, VRAM_USED, TEMP_JUNCTION
-
-def main() raises:
-    var g = Gpu()  # the card with the most VRAM under /sys; files opened once
-    while True:
-        g.refresh()  # pread into one buffer, parse in place
-        print(g.get(VRAM_USED), g.vram_free(), g.get(TEMP_JUNCTION))
-        # sleep 1 s
-```
-
-## Install
-
 Requires Mojo 1.2 on Linux with the `amdgpu` driver. Nothing to link.
-
-| Way | Command |
-|---|---|
-| Source path | `mojo run -I path/to/mojo-amdgpu/src app.mojo` |
-| Precompiled | `mojo precompile src/amdgpu -o amdgpu.mojoc`, put it next to your code |
-| Vendor | copy `src/amdgpu/` into your project |
 
 ## What you get
 
