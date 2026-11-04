@@ -12,7 +12,7 @@ sample, and what must stay flat is memory.
 | Fields widest first (`Int` values, `Int32` fds, bytes) | no padding holes | 136 + 24 (name) + 68 + 256 = 484, rounded to 488 by the 8-byte struct alignment |
 | `external_call["pread"]` straight to libc | a symbol resolved at link time, no `dlsym` per call | none per call |
 | `NA = Int.MIN` instead of an `Optional` per metric | one `Int` slot per metric, no boxing | 17 slots, 136 bytes |
-| Slots chosen once at open (labels read then) | the label scan (10 temps, 10 voltages) costs 20 file reads, so it is not repeated | `open` 150 to 210 µs, once |
+| Slots chosen once at open (labels read then) | the label scan (9 temps, 10 voltages) costs 19 file reads, so it is not repeated | `open` 150 to 210 µs, once |
 
 ## Not done, and why
 
