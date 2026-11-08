@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 : "${CASES:?FAIL setup: set CASES to the built case runner}"
 mkdir -p .work
-M=.venv/bin/mojo
+M=${MOJO:-.venv/bin/mojo}
 n=0
 for root in tests/fixtures/*/; do
   root=${root%/}
