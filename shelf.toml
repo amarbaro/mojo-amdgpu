@@ -1,0 +1,4 @@
+name = "mojo-amdgpu"
+version = "0.1.5"
+description = "AMD GPU telemetry for Mojo from sysfs and hwmon, no ROCm needed: VRAM, busy, power, temperature, clocks, KFD holders"
+tags = ["mojo", "gpu", "amd", "telemetry"]
