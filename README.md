@@ -1,5 +1,7 @@
 # mojo-amdgpu
 
+> **Moved:** this library now lives in [amarbaro/mojo-libs](https://github.com/amarbaro/mojo-libs/tree/main/libs/amdgpu). This repository is read-only; issues and pull requests go there.
+
 <!-- badges -->
 [![ci](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/amarbaro/mojo-amdgpu/actions/workflows/ci.yml) [![latest release](https://img.shields.io/github/v/release/amarbaro/mojo-amdgpu)](https://github.com/amarbaro/mojo-amdgpu/releases/latest) [![license](https://img.shields.io/github/license/amarbaro/mojo-amdgpu)](https://github.com/amarbaro/mojo-amdgpu/blob/main/LICENSE)
 <!-- /badges -->
